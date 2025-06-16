@@ -50,13 +50,14 @@
             launchApp();
         };
 		
-        function showSweetAlert() {
-            Swal.fire({
-                title: "自定义弹窗",
-                text: "这里不会显示网页 URL！",
-                icon: "success"
-            });
-        }
+       function showSweetAlert() {
+        Swal.fire({
+            title: '自定义提示',
+            text: '，不会显示网址',
+            icon: 'info',
+            confirmButtonText: '确定'
+        });
+    }
 	</script>
 </head>
 <body>
