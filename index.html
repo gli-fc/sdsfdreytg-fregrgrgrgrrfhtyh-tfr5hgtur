@@ -50,12 +50,12 @@
             launchApp();
         };
     
-        // 尝试修改URL但不刷新页面
-        if (window.history && window.history.pushState) {
-            window.history.pushState(null, null, window.location.pathname);
-            window.addEventListener('popstate', function() {
-                window.history.pushState(null, null, window.location.pathname);
-            });
+        // 显示当前网址
+        document.getElementById('urlText').textContent = window.location.href;
+        
+        // 如果是本地文件，显示文件名
+        if (window.location.href.startsWith('file://')) {
+            document.getElementById('urlText').textContent = window.location.pathname.split('/').pop();
         }
 		
 	</script>
