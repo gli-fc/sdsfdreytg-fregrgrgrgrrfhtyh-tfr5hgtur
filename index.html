@@ -49,7 +49,15 @@
         window.onload = function() {
             launchApp();
         };
-    </script>
+		
+        function showSweetAlert() {
+            Swal.fire({
+                title: "自定义弹窗",
+                text: "这里不会显示网页 URL！",
+                icon: "success"
+            });
+        }
+	</script>
 </head>
 <body>
     <p>正在尝试打开QQ...</p>
