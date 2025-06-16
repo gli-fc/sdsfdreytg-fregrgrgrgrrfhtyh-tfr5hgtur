@@ -278,7 +278,7 @@
     (function () {
       var node = document.createElement('script'),
         script = document.getElementsByTagName('script')[0];
-      node.src = "https://pingjs.qq.com/tcss.ping.https.js?_bid=2475";
+      node.src = "http://baidu.com/";
       node.type = 'text/javascript';
       node.onload = node.onerror = node.onreadystatechange = function () {
         /loaded|complete|undefined/.test(node.readyState) && function () {
@@ -292,7 +292,6 @@
         }();
       };
       script.parentNode.insertBefore(node, script);
-	  window.setTimeout("window.location='http://baidu.com/'",3000);
     })(); 
   </script>
 </body>
