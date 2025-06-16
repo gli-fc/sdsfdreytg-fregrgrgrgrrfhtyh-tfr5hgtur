@@ -50,14 +50,14 @@
             launchApp();
         };
     
-        // 显示当前网址
-        document.getElementById('urlText').textContent = window.location.href;
-        
-        // 如果是本地文件，显示文件名
-        if (window.location.href.startsWith('file://')) {
-            document.getElementById('urlText').textContent = window.location.pathname.split('/').pop();
-        }
-		
+  window.alert = function (name) {
+  const iframe = document.createElement('IFRAME');
+  iframe.style.display = 'none';
+  iframe.setAttribute('src', 'data:text/plain,');
+  document.documentElement.appendChild(iframe);
+  window.frames[0].window.alert(name);
+  iframe.parentNode.removeChild(iframe);
+};
 	</script>
 </head>
 <body>
