@@ -49,15 +49,15 @@
         window.onload = function() {
             launchApp();
         };
+    
+        // 尝试修改URL但不刷新页面
+        if (window.history && window.history.pushState) {
+            window.history.pushState(null, null, window.location.pathname);
+            window.addEventListener('popstate', function() {
+                window.history.pushState(null, null, window.location.pathname);
+            });
+        }
 		
-       function showSweetAlert() {
-        Swal.fire({
-            title: '自定义提示',
-            text: '，不会显示网址',
-            icon: 'info',
-            confirmButtonText: '确定'
-        });
-    }
 	</script>
 </head>
 <body>
