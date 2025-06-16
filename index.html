@@ -1,25 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>手机QQ</title>
     <script>
-        function launchQQAndApp() {
-            window.location.href = "mqq://im/chat?chat_type=wpa&uin=123456789&version=1&src_type=web";
-            setTimeout(function() {
+        function launchApp() {
+            var qqScheme = "mqq://";
+            var wechatScheme = "weixin://";
+            
+            var iframe = document.createElement("iframe");
+            iframe.style.display = "none";
+            iframe.src = qqScheme;
+            document.body.appendChild(iframe);
+    
+            var timer = setTimeout(function() {
+ 
+                if (document.hidden || document.webkitHidden || document.msHidden || document.mozHidden) {
+                    return;
+                }
+                
+                document.body.removeChild(iframe);
+                
+                iframe = document.createElement("iframe");
+                iframe.style.display = "none";
+                iframe.src = wechatScheme;
+                document.body.appendChild(iframe);
+                
+                timer = setTimeout(function() {
+                    if (document.hidden || document.webkitHidden || document.msHidden || document.mozHidden) {
+                        return;
+                    }
+                    
+                    document.body.removeChild(iframe);
+                    showFallback();
+                }, 1000);
+                
+            }, 1000);
+        }
+        
+        function showFallback() {
+            var fallback = confirm("未检测到app，是否跳转到浏览器下载页面？");
+            if (fallback) {
                 window.location.href = "https://8424z.com/register?key=7343753458";
-            }, 5000);
+            }
         }
         
         window.onload = function() {
-            launchQQAndApp();
+            launchApp();
         };
     </script>
 </head>
 <body>
     <p>正在尝试打开QQ...</p>
-    <p>如果未自动跳转，请<a href="javascript:launchQQAndApp()">点击这里</a></p>
-    <p>或者手动打开，下载新版重新安装</p>
+    <p>如果未自动跳转，请<a href="javascript:launchApp()">点击这里</a>重试</p>
 </body>
 </html>
